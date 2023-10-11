@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hand de Cartes</title>
+</head>
+<body>
+    <h1>Ma hand de Cartes</h1>
+    <ul>
+        {% for card in hand %}
+            <li>{{ card.getColor() }} - {{ card.getValue() }}</li>
+        {% endfor %}
+    </ul>
+    <form action="{{ path('start', {'sort': true}) }}" method="get">
+        <button type="submit">Trier</button>
+    </form>
+</body>
+</html>
