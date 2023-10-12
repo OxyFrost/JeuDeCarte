@@ -21,7 +21,7 @@ class CardRepository extends ServiceEntityRepository {
     public function generateDeck() {
         // Jeu de données
         $colors = ['Carreaux', 'Coeur', 'Pique', 'Trèfle'];
-        $values = ['As', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Dame', 'Roi', 'Valet'];
+        $values = ['As', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Dame', 'Valet', 'Roi'];
         shuffle($colors);
         shuffle($values);
 

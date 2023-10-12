@@ -20,16 +20,10 @@ class Card {
         $this->value = $value;
     }
 
-    /**
-     * @return $this->color
-     */
     public function getColor() {
         return $this->color;
     }
 
-    /**
-     * 
-     */
     public function setColor($color) {
         $this->color = $color;
     }

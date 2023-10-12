@@ -3,17 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hand de Cartes</title>
+    <link href="{{ asset('css/game.css') }}" rel="stylesheet" type="text/css"/>
+    <title>Jeu de Cartes</title>
 </head>
-<body>
-    <h1>Ma hand de Cartes</h1>
-    <ul>
+<body bgcolor="green">
+    <h1>Deck de cartes</h1>
+    <div class="hand">
         {% for card in hand %}
-            <li>{{ card.getColor() }} - {{ card.getValue() }}</li>
+            <div class="card {% if card.getColor() == 'Carreaux' or card.getColor() == 'Coeur' %} red {% else %} black {% endif %}">
+                <div class="value">{{ card.getValue() }}</div>
+                <div class="suit">
+                    {% if card.getColor() == 'Carreaux' %}
+                        &diams;
+                    {% elseif card.getColor() == 'Coeur' %}
+                        &hearts;
+                    {% elseif card.getColor() == 'Pique' %}
+                        &spades;
+                    {% elseif card.getColor() == 'Trèfle' %}
+                        &clubs;
+                    {% endif %}
+                </div>
+            </div>
         {% endfor %}
-    </ul>
-    <form action="{{ path('start', {'sort': true}) }}" method="get">
-        <button type="submit">Trier</button>
-    </form>
+    </div>
+    <button>
+        <a href="{{ path('start', {'sort': true}) }}"> Trier </a>
+    </button>
+    <button>
+        <a href="{{ path('start') }}"> Relancer </a>
+    </button>
 </body>
 </html>
